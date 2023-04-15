@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CLAppTestSupabase.Business.Interfaces;
 using CLAppTestSupabase.Business.Mappers;
@@ -39,6 +40,8 @@ public class TodoService : ITodoService
 
     public async Task<Todo> InsertTodo(Todo todo)
     {
+        todo.CreationDate = DateTime.UtcNow;
+
         var newTodo = await SupabaseClient
             .From<Data.Models.Todo>()
             .Insert(todo.ToEntity());
