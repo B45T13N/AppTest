@@ -1,2 +1,2 @@
 # AppTest
-Different C# application to train
+Different C# application to train on Supabase
